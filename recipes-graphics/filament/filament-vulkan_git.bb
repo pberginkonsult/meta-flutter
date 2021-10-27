@@ -17,46 +17,33 @@ DEPENDS_append_class-target = " \
     wayland \
     wayland-native \
     wayland-protocols \
+    libcxx \
+    libunwind \
 "
 
 REQUIRED_DISTRO_FEATURES = "wayland vulkan"
 
 S = "${WORKDIR}/git"
 
-inherit cmake
-
 TOOLCHAIN = "clang"
 
 RUNTIME = "llvm"
 
-EXTRA_OECMAKE_append_class-native = " \
+inherit cmake
+
+EXTRA_OECMAKE += " \
     -D BUILD_SHARED_LIBS=OFF \
     -D FILAMENT_SUPPORTS_VULKAN=ON \
     -D FILAMENT_SUPPORTS_OPENGL=OFF \
     -D FILAMENT_SUPPORTS_WAYLAND=ON \
-    -D FILAMENT_SKIP_SAMPLES=ON \
     -D CMAKE_VERBOSE_MAKEFILE=ON \
+    "
+
+EXTRA_OECMAKE_append_class-native = " \
+    -D FILAMENT_SKIP_SAMPLES=ON \
     "
 
 EXTRA_OECMAKE_append_class-target = " \
-    -D BUILD_SHARED_LIBS=OFF \
-    -D FILAMENT_SUPPORTS_VULKAN=ON \
-    -D FILAMENT_SUPPORTS_OPENGL=OFF \
-    -D FILAMENT_SUPPORTS_WAYLAND=ON \
-    -D FILAMENT_SKIP_SAMPLES=ON \
-    -D CMAKE_VERBOSE_MAKEFILE=ON \
     "
-
-# FILES_${PN} = " \
-#    ${libdir}/* \
-#    "
-
-# FILES_${PN}-dev  = " \
-#    ${includedir}/* \
-#    ${libdir}/pkgconfig/* \
-#    "
-
-# FILES_SOLIBSDEV = ""
-# INSANE_SKIP_${PN} += "dev-so"
 
 BBCLASSEXTEND += "native nativesdk"
