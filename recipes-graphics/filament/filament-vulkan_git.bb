@@ -8,11 +8,7 @@ CVE_PRODUCT = ""
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
-SRC_URI = "git://github.com/meta-flutter/filament;protocol=https;branch=wayland"
-SRCREV = "32a73d8db2cea4ed91735830dd2eed36f84cc511"
-
 DEPENDS_append_class-target = " \
-    glib-2.0 \
     virtual/egl \
     wayland \
     wayland-native \
@@ -22,6 +18,12 @@ DEPENDS_append_class-target = " \
 "
 
 REQUIRED_DISTRO_FEATURES = "wayland vulkan"
+
+PV .= "+${SRCPV}"
+
+SRC_URI = "git://github.com/meta-flutter/filament;protocol=https;branch=wayland"
+
+SRCREV = "${AUTOREV}"
 
 S = "${WORKDIR}/git"
 

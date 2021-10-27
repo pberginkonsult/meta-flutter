@@ -269,6 +269,27 @@ jobs:
           path: |
              /home/dev/artifacts/*
 
+      - name: Build filament-vulkan-native
+        shell: bash
+        working-directory: ../agl-lamprey-qemu
+        run: |
+          . ./oe-init-build-env
+          bitbake filament-vulkan-native
+
+      - name: Build filament-gles3-native
+        shell: bash
+        working-directory: ../agl-lamprey-qemu
+        run: |
+          . ./oe-init-build-env
+          bitbake filament-gles3-native
+
+      - name: Build filament-vulkan
+        shell: bash
+        working-directory: ../agl-lamprey-qemu
+        run: |
+          . ./oe-init-build-env
+          bitbake filament-vulkan
+
       - name: Build flutter-engine
         shell: bash
         working-directory: ../agl-lamprey-qemu

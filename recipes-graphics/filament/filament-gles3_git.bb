@@ -12,7 +12,6 @@ SRC_URI = "git://github.com/meta-flutter/filament;protocol=https;branch=wayland"
 SRCREV = "32a73d8db2cea4ed91735830dd2eed36f84cc511"
 
 DEPENDS_append_class-target = " \
-    glib-2.0 \
     virtual/egl \
     wayland \
     wayland-native \
@@ -23,6 +22,12 @@ DEPENDS_append_class-target = " \
 
 REQUIRED_DISTRO_FEATURES = "wayland opengl"
 
+PV .= "+${SRCPV}"
+
+SRC_URI = "git://github.com/meta-flutter/filament;protocol=https;branch=wayland"
+
+SRCREV = "${AUTOREV}"
+
 S = "${WORKDIR}/git"
 
 TOOLCHAIN = "clang"
@@ -30,6 +35,7 @@ TOOLCHAIN = "clang"
 RUNTIME = "llvm"
 
 inherit cmake
+
 
 EXTRA_OECMAKE += " \
     -D BUILD_SHARED_LIBS=OFF \
