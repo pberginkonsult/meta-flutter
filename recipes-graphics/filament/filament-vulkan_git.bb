@@ -9,7 +9,7 @@ LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
 SRC_URI = "git://github.com/meta-flutter/filament;protocol=https;branch=wayland"
-SRCREV = "1cc11e7580da5950df1bc7b736243d5a686e867e"
+SRCREV = "32a73d8db2cea4ed91735830dd2eed36f84cc511"
 
 DEPENDS_append_class-target = " \
     glib-2.0 \
