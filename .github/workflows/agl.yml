@@ -23,7 +23,7 @@ jobs:
     runs-on: [self-hosted, linux]
     
     container:
-      image: ghcr.io/meta-flutter/ubuntu-20-dev:main
+      image: ghcr.io/meta-flutter/agl-generic:latest
       options:
         --user 1018
         --storage-opt overlay.mount_program=/usr/bin/fuse-overlayfs
@@ -190,7 +190,7 @@ jobs:
     runs-on: [self-hosted, linux]
     
     container:
-      image: ghcr.io/meta-flutter/ubuntu-20-dev:main
+      image: ghcr.io/meta-flutter/agl-generic:latest
       options:
         --user 1018
         --storage-opt overlay.mount_program=/usr/bin/fuse-overlayfs
